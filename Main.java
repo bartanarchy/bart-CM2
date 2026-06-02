@@ -13,8 +13,9 @@ public class Main {
             System.out.println("===========================");
             System.out.println("1. Add Queue");
             System.out.println("2. Print Queue");
-            System.out.println("3. Remove Queue and Order");
-            System.out.println("4. Order Report");
+            System.out.println("3. Cancel Queue");
+            System.out.println("4. Remove Queue and Order");
+            System.out.println("5. Order Report");
             System.out.println("0. Exit");
             System.out.print("Choose menu : ");
             choice = sc.nextInt();
@@ -32,6 +33,12 @@ public class Main {
                     qb.printQueue();
                     break;
                 case 3:
+                    System.out.print("Enter queue number to cancel: ");
+                    int queueNumber = sc.nextInt();
+                    sc.nextLine();
+                    qb.cancelQueue(queueNumber);
+                    break;
+                case 4:
                     NodeBuyer served = qb.removeQueue();
                     if (served != null) {
                         System.out.println("Served Buyer:");
@@ -52,7 +59,7 @@ public class Main {
                         System.out.println("No queue available.");
                     }
                     break;
-                case 4:
+                case 5:
                     ol.printReport();
                     break;
                 case 0:
